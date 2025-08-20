@@ -1,110 +1,134 @@
 @charset "utf-8";
-#header{
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 99;
-    width: 100%;
+
+#header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
 }
-#header .header_inner{
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    background-color: rgba(116,99,99,0.1);
-    backdrop-filter: blur(15px);
-    /* 배경에 블러효과 */
-    padding: 16px;
+
+.header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgba(116, 99, 99, 0.1);
+	backdrop-filter: blur(15px);
+	padding: 1rem;
 }
-#header .header_inner .header_logo{
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
+
+.header__logo {
+	font-size: 0.9rem;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 1;
 }
-#header .header_inner .header_logo em{
-    display: block;
-    font-size: 16px;
-    font-weight: 300;
+
+.header__logo em {
+	font-size: 10px;
+	display: block;
+	color: var(--black200);
 }
-#header .header_inner .header_nav{
-  
+
+.header__nav li {
+	display: inline;
 }
-#header .header_inner .header_nav ul{}
-#header .header_inner .header_nav ul li{
-    display: inline;
+
+.header__nav li a {
+	text-transform: uppercase;
+	font-size: 14px;
+	padding: 14px;
+	position: relative;
 }
-#header .header_inner .header_nav ul li a{
-    padding: 14px;
-    text-transform: uppercase;
-    position: relative;
+
+.header__nav li a::before {
+	content: '';
+	width: calc(100% - 28px);
+	height: 1px;
+	background-color: var(--black);
+	position: absolute;
+	left: 14px;
+	bottom: 10px;
+	transform: scaleX(0);
+	transition: all 0.3s;
 }
-#header .header_inner .header_nav ul li a::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 10px;
-    width: 100%;
-    height: 1px;
-    background-color: var(--black);
-    transform: scaleX(0);
-    transition: all 0.3s;
+
+.header__nav li a:hover::before {
+	transform: scaleX(1);
 }
-#header .header_inner .header_nav ul li a:hover::before{
-    transform: scaleX(80%);
+
+.header__nav__mobile {
+	display: none;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
 }
-#header .header_inner .header_nav_mobile{
-    display: none;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+
+.header__nav__mobile span {
+	display: block;
+	width: 40px;
+	height: 2px;
+	background-color: var(--black);
+	margin-top: 19px;
+	position: relative;
 }
-#header .header_inner .header_nav_mobile span{
-    display: block;
-    width: 40px;
-    height: 2px;
-    background-color: var(--black);
-    margin-top: 19px;
-    position: relative;
+
+.header__nav__mobile span::before {
+	content: "";
+	width: 40px;
+	height: 2px;
+	background-color: var(--black);
+	position: absolute;
+	right: 0;
+	top: 6px;
+	transition: width 0.3s;
 }
-#header .header_inner .header_nav_mobile span::before{
-    content: "";
-    width: 40px;
-    height: 2px;
-    background-color: var(--black);
-    position: absolute;
-    left: 0;
-    top: 6px;    
+
+.header__nav__mobile span::after {
+	content: "";
+	width: 40px;
+	height: 2px;
+	background-color: var(--black);
+	position: absolute;
+	left: 0;
+	bottom: 6px;
+	transition: width 0.3s;
 }
-#header .header_inner .header_nav_mobile span::after{
-    content: "";
-    width: 40px;
-    height: 2px;
-    background-color: var(--black);
-    position: absolute;
-    left: 0;
-    bottom: 6px;   
-}
-@media(max-width:800px){
-    #header .header_inner .header_nav{display: none;}
-    #header .header_inner .header_nav.show{display: block;}
-    #header .header_inner .header_nav.show ul{
+
+
+@media (max-width: 800px){
+    .header__nav {
+        display: none;
+    }
+    .header__nav.show {
+        display: block;
+    }
+    .header__nav.show ul {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 68px;
         background-color: rgba(116,99,99,0.1);
         backdrop-filter: blur(15px);
-        width: 150px;
-        position: absolute;
-        right: 0px;
-        top: 82px;
+        z-index: 10000;
+        min-width: 150px;
         padding: 20px 0;
-        z-index: 100;
     }
-    #header .header_inner .header_nav.show ul li{
+    .header__nav.show li {
         display: block;
         text-align: right;
     }
-    #header .header_inner .header_nav.show ul li a{
+    .header__nav.show li a {
         display: inline-block;
         padding: 10px;
     }
-
-
-    #header .header_inner .header_nav_mobile{display: block;}
+    .header__nav.show + .header__nav__mobile span::before {
+        width: 20px;
+    }
+    .header__nav.show + .header__nav__mobile span::after {
+        width: 20px;
+    }
+    .header__nav__mobile {
+        display: block;
+    }
 }
