@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필 웹페이지만들기 샘플</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+   <!-- skip -->
+    <div id="skip">
+        <a href="#header">헤더 영역 바로가기</a>
+        <a href="#intro">소개 영역 바로가기</a>
+        <a href="#">스킬 영역 바로가기</a>
+        <a href="#">사잍 영역 바로가기</a>
+        <a href="#">포트폴리오 영역 바로가기</a>
+        <a href="#">연락처 영역 바로가기</a>
+        <a href="#">푸터 영역 바로가기</a>
+    </div>
+    <header id="header" role="banner">
+        <div class="header_inner">
+            <div class="header_logo">
+                포트폴리오 <em>나의 작품's</em>
+            </div>
+            <div class="header_nav">
+                <ul>
+                    <li><a href="#intro">intro</a></li>
+                    <li><a href="#">skill</a></li>
+                    <li><a href="#">site</a></li>
+                    <li><a href="#">Port</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="header_nav_mobile" id="headerToggle">
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="intro">
+            <div class="intro_inner">
+                <h1 class="intro_title">
+                    port developer
+                </h1>
+                <div class="intro_lines" aria-hidden="true">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+
+                <div class="intro_txt">
+                    <div class="text">
+                        <div>talent is</div>
+                        <div>found at the end of the</div>
+                        <div>effort</div>
+                    </div>
+                    <div class="img">
+                        <img src="./img/image.png" alt="이미지1">
+                    </div>
+                </div>
+
+
+                <div class="intro_lines bottom" aria-hidden="true">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+
+
+                <!--
+                 aria-hidden="true" : 스키린 리더에서는 숨기는 방법으로 컨트롤 히든을 사용함
+                  -->
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+    <script>
+        const headerToggle = document.getElementById("headerToggle");
+        const headerNav = document.querySelector(".header_nav");
+
+        headerToggle.addEventListener("click",()=>{
+            headerNav.classList.toggle("show");
+        });
+
+    </script>
+</body>
+</html>
